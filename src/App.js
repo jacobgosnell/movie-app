@@ -3,6 +3,19 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('constructor')
+  }
+
+  componentWillMount() {
+    //good for setting state
+    console.log('will mount');
+  }
+
+  componentDidMount() {
+    console.log('did mount');
+  }
 
   state = {
     toggle: true
@@ -14,6 +27,7 @@ class App extends Component {
     })
   }
 
+  //componentMounts()
   render() {
     return (
 			<div className="App">
@@ -21,8 +35,8 @@ class App extends Component {
 					<img src={logo} className="App-logo" alt="logo" />
 					<p>
 						Edit <code>src/App.js</code> and save to reload.
-						<Welcome text="Welcome to Using Props" toggle={this.state.toggle}/>
 					</p>
+					<Welcome text="Welcome to Using Props" toggle={this.state.toggle} />
 
 					{this.state.toggle && <p>This should show and hide</p>}
 					<button onClick={this.toggle}>Show / Hide</button>
