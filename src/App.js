@@ -4,8 +4,19 @@ import './App.css';
 
 class App extends Component {
 
+  state = {
+    input: 'Hello'
+  }
+
+  updateInput = (event) => {
+    console.log(event.target.value)
+    this.setState({
+      input: event.target.value.trim() // trim() makes it so a user cannot spacebar in an input
+    })
+  }
+
   submit = () => {
-    console.log(this.text.value)
+    console.log(this.state.input)
   }
 
   //componentMounts()
@@ -18,8 +29,8 @@ class App extends Component {
 						Edit <code>src/App.js</code> and save to reload.
 					</p>
 					<Welcome text="Welcome to Using Props" />
-
-          <input type="text" ref={(input) => this.text = input } />
+          <h3>{this.state.input}</h3>
+          <input type="text" onChange={this.updateInput} value={this.state.input} />
           <input type="email" ref={(input) => this.email = input } />
 					<button onClick={this.submit}>Show Value</button>
 				</header>
