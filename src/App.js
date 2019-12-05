@@ -2,6 +2,23 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Movie from './Movie';
+
+const movies = [
+  {
+    id: 1,
+    title: 'Star Wars'
+  },
+  {
+    id: 2,
+    title: 'Spider-Man'
+  },
+  {
+    id: 3,
+    title: '36th Chamber of Shaolin'
+  }
+];
+
 class App extends Component {
 
   state = {
@@ -25,27 +42,10 @@ class App extends Component {
 			<div className="App">
 				<header className="App-header">
 					<img src={logo} className="App-logo" alt="logo" />
-					<p>
-						Edit <code>src/App.js</code> and save to reload.
-					</p>
-					<Welcome text="Welcome to Using Props" />
-          <h3>{this.state.input}</h3>
-          <input type="text" onChange={this.updateInput} value={this.state.input} />
-          <input type="email" ref={(input) => this.email = input } />
-					<button onClick={this.submit}>Show Value</button>
 				</header>
+				{movies.map(movie => ( <Movie key={movie.id} movie={movie}/> ))}
 			</div>
 		);
-  }
-}
-
-class Welcome extends Component {
-  render() {
-    const { text, toggle } = this.props;
-    console.log(toggle);
-    return (
-      <h1 className="App-title">{text}</h1>
-    );
   }
 }
 
