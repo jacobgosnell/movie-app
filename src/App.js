@@ -3,28 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    console.log('constructor')
-  }
 
-  componentWillMount() {
-    //good for setting state
-    console.log('will mount');
-  }
-
-  componentDidMount() {
-    console.log('did mount');
-  }
-
-  state = {
-    toggle: true
-  }
-
-  toggle = () => {
-    this.setState({
-      toggle: !this.state.toggle
-    })
+  submit = () => {
+    console.log(this.text.value)
   }
 
   //componentMounts()
@@ -36,10 +17,11 @@ class App extends Component {
 					<p>
 						Edit <code>src/App.js</code> and save to reload.
 					</p>
-					<Welcome text="Welcome to Using Props" toggle={this.state.toggle} />
+					<Welcome text="Welcome to Using Props" />
 
-					{this.state.toggle && <p>This should show and hide</p>}
-					<button onClick={this.toggle}>Show / Hide</button>
+          <input type="text" ref={(input) => this.text = input } />
+          <input type="email" ref={(input) => this.email = input } />
+					<button onClick={this.submit}>Show Value</button>
 				</header>
 			</div>
 		);
