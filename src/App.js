@@ -11,8 +11,6 @@ import './App.css';
 import MoviesList from './MoviesList';
 import MovieDetail from './MovieDetail';
 
-// const Test = ({ match }) => <h1>{match.params.id}</h1>;
-
 const App = () => (
 	<Router>
 		<div className="App">
