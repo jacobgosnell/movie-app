@@ -1,9 +1,28 @@
-import React, { Component } from 'react';
+// A pure component only renders when a 1st level
+// prop has been changed.  A component's render
+// cycle only renders again when the state has changed
+// or when the props coming in to a component
+// has changed.  A normal component does deep checking
+// if your prop has a data structure, the components
+// will know when anything nested in that data has changed
+// if you have nested data, and everytime the component
+// props check if something has changed, you can
+// imagine that deep checking is a little more
+// expensive performance wise.
+
+// The only time this component needs to refresh
+// is when there is a state change, therefore it
+// can be a pure component.
+
+// A pure component does not do deep checking in
+// complex data structures.  A pure component checks
+// for changes in primitive data sets.
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import Movie from './Movie';
 
-class MoviesList extends Component {
+class MoviesList extends PureComponent {
 	// needs initial state
 	state = {
 	  movies: [],
